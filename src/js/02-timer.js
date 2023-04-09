@@ -30,16 +30,6 @@ refs.hoursTimer.style.fontWeight = '600';
 refs.minutesTimer.style.fontWeight = '600';
 refs.secondsTimer.style.fontWeight = '600';
 
-// console.dir(refs.timerDiv.children);
-
-// refs.timerDiv.children[0].className = 'flatpickr-day';
-// refs.timerDiv.children[1].className = 'flatpickr-day';
-// refs.timerDiv.children[2].className = 'flatpickr-day';
-// refs.timerDiv.children[3].className = 'flatpickr-day';
-// 1. set refs to input, button 'Start', field (days, hours, minutes, seconds)
-// 2. Set to input field DATE check form
-// 3. function to start timer
-
 const options = {
   enableTime: true,
   time_24hr: true,
