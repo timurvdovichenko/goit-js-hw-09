@@ -45,19 +45,23 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    const TIMER_INTERVAL = 1000;
+    // let idIterval = null;
     function onStartTimer() {
       refs.buttonStartTimer.disabled = true;
       let idIterval = setInterval(() => {
         if (selectedDates[0] - Date.now() > 0) {
           setDataToTimer(convertMs(selectedDates[0] - Date.now()));
-          console.log(idIterval);
+          //   console.log(idIterval);
         } else {
           Notiflix.Notify.info("Time's up. Choose another date");
           refs.buttonStartTimer.disabled = false;
           clearInterval(idIterval);
           return;
         }
-      }, 1000);
+      }, TIMER_INTERVAL);
+      //   flatpicker.clear();
+      flatpicker.destroy();
     }
 
     if (selectedDates[0] - Date.now() <= 0) {
