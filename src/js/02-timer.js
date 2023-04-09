@@ -55,18 +55,15 @@ const options = {
       flatpicker.destroy();
     }
 
-    if (selectedDates[0] - Date.now() <= 0) {
-      // console.log('Date in Past');
-      Notify.failure('Please choose a date in the future');
-      refs.buttonStartTimer.disabled = true;
-      return;
-    }
-
     if (selectedDates[0] - Date.now() > 0) {
       //   console.log('Date in Future');
       refs.buttonStartTimer.disabled = false;
       Notify.success('You selected a date in the future');
       refs.buttonStartTimer.addEventListener('click', onStartTimer);
+    } else {
+      Notify.failure('Please choose a date in the future');
+      refs.buttonStartTimer.disabled = true;
+      return;
     }
   },
 };
