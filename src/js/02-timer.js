@@ -3,7 +3,8 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
-import Notiflix, { Loading } from 'notiflix';
+// import Notiflix, { Loading } from 'notiflix';
+import { Notify } from 'notiflix';
 
 const refs = {
   dateSelectInputForm: document.querySelector('#datetime-picker'),
@@ -54,7 +55,7 @@ const options = {
           setDataToTimer(convertMs(selectedDates[0] - Date.now()));
           //   console.log(idIterval);
         } else {
-          Notiflix.Notify.info("Time's up. Choose another date");
+          Notify.info("Time's up. Choose another date");
           refs.buttonStartTimer.disabled = false;
           clearInterval(idIterval);
           return;
@@ -66,7 +67,7 @@ const options = {
 
     if (selectedDates[0] - Date.now() <= 0) {
       // console.log('Date in Past');
-      Notiflix.Notify.failure('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future');
       refs.buttonStartTimer.disabled = true;
       return;
     }
@@ -74,7 +75,7 @@ const options = {
     if (selectedDates[0] - Date.now() > 0) {
       //   console.log('Date in Future');
       refs.buttonStartTimer.disabled = false;
-      Notiflix.Notify.success('You selected date in future');
+      Notify.success('You selected a date in the future');
       refs.buttonStartTimer.addEventListener('click', onStartTimer);
     }
   },
