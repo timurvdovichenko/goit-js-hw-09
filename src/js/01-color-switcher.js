@@ -9,7 +9,9 @@ refs.buttonStop.addEventListener('click', stopChangeColor);
 
 let intervalID = null;
 
-refs.buttonStop.setAttribute('disabled', true);
+// refs.buttonStop.setAttribute('disabled', true);
+refs.buttonStop.disabled = true;
+refs.buttonStart.disabled = false;
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -24,8 +26,11 @@ function startChangeColor(evt) {
       refs.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
   }
-  refs.buttonStart.setAttribute('disabled', true);
-  refs.buttonStop.removeAttribute('disabled');
+  // refs.buttonStart.setAttribute('disabled', true);
+  // refs.buttonStop.removeAttribute('disabled');
+
+  refs.buttonStart.disabled = true;
+  refs.buttonStop.disabled = false;
 }
 
 function stopChangeColor() {
@@ -33,4 +38,7 @@ function stopChangeColor() {
   intervalID = null;
   refs.buttonStart.removeAttribute('disabled');
   refs.buttonStop.setAttribute('disabled', true);
+
+  refs.buttonStart.disabled = false;
+  refs.buttonStop.disabled = true;
 }
