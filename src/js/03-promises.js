@@ -37,6 +37,7 @@ function onSubmitForm(evt) {
 
   if (delay.valueAsNumber < 0 || step.valueAsNumber < 0 || amount.valueAsNumber <= 0) {
     Notify.info(`Please enter number greater or equal zero`);
+    refs.form.lastElementChild.disabled = false;
     return;
   } else {
     // cycle for create promises
